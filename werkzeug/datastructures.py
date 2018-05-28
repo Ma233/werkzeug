@@ -279,9 +279,8 @@ class TypeConversionDict(dict):
     def get(self, key, default=None, type=None):
         """Return the default value if the requested data doesn't exist.
         If `type` is provided and is a callable it should convert the value,
-        return it or raise a :exc:`ValueError` if that is not possible.  In
-        this case the function will return the default as if the value was not
-        found:
+        return it or return `default` if that is not possible.  In this case
+        the function will return the default as if the value was not found:
 
         >>> d = TypeConversionDict(foo='42', bar='blub')
         >>> d.get('foo', type=int)
